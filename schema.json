@@ -1,0 +1,60 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "budibase-foreach",
+    "friendlyName": "ForEach",
+    "description": "ForEach component for Budibase",
+    "icon": "Gears",
+    "settings": [
+       {
+        "type": "dataProvider",
+        "key": "dataProvider",
+        "label": "Data Provider"
+      },
+      {
+        "type": "text",
+        "key": "nextLineNumber",
+        "label": "Next Line Number",
+        "required": true
+      },
+      {
+        "type": "event",
+        "key": "event",
+        "label": "Event",
+        "context": [
+          {
+            "label": "Line Data",
+            "key": "lineData"
+          },
+          {
+            "label": "Line Number",
+            "key": "lineNumber"
+          }
+        ]
+      }
+    ],
+    "context": [
+      {
+        "type": "static",
+        "values": [
+          {
+            "label": "Current Line Data",
+            "key": "currentLineData",
+            "type": "object"
+          }
+        ]
+      },
+      {
+        "type": "static",
+        "values": [
+          {
+            "label": "Current Line Number",
+            "key": "currentLineNumber",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  }
+}
