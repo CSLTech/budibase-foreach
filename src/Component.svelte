@@ -21,7 +21,7 @@
   function nextLineChanged(nextLineNumber: string) {
     currentLineNumber = parseInt(nextLineNumber, 10);
 
-    if (isNaN(currentLineNumber)) {
+    if (isNaN(currentLineNumber) || currentLineNumber < 0 || currentLineNumber >= dataProvider?.rows.length) {
       currentLineNumber = null;
       currentLineData = null;
     }

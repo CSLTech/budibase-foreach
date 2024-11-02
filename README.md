@@ -1,20 +1,21 @@
-# Budibase-foreach
-This is a readme for your new Budibase plugin.
+# ForEach Plugin
 
 # Description
-ForEach component for Budibase
+Budibase ForEach plugin.
 
 Find out more about [Budibase](https://github.com/Budibase/budibase).
 
+This plugin can be used to run actions on every row of a datasource. You could also leverage the plugin to execute actions on binding changes.
+
+
 ## Instructions
 
-To build your new  plugin run the following in your Budibase CLI:
-```
-budi plugins --build
-```
+Install the plugin and add the component to your application. The component requires a "row number" binding and an event to trigger when this "row number" changes. The event handler will fire on every change of the "row number" binding, except if the "row number" binding is not parseable as a number or parses to a negative number. If the datasource binding is set, the event handler will also receive the object from the datasource at the selected row. The plugin also exposes the current "row number" and the current row data (If dataprovider is set) as context variables if you want to track the status.
 
-You can also re-build everytime you make a change to your plugin with the command:
-```
-budi plugins --watch
-```
-
+### ForEach Flow
+To implement a full "ForEach", the following is the recommended implementation:
+ - Bind a *selectedRow* state variable to the **Next Line Number** setting.
+ - Bind your data provider to the **Data Provider** setting.
+ - Add the following actions to the **Event** setting:
+     1. ...Some custom action
+     2. Set the *selectedRow* state variable to the following binding `{{ add Line Number 1 }}`
